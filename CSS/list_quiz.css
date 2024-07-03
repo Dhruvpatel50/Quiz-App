@@ -1,0 +1,81 @@
+/* General Styles for Quiz List Page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #4e5be6;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #4e5be6;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.logout button {
+    font-size: 1.3rem;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.container {
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+li h2 {
+    margin: 0 0 10px;
+}
+
+li p {
+    margin: 5px 0;
+}
+
+li a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4e5be6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+li a:hover {
+    background-color: #525bb9;
+}
