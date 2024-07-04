@@ -7,10 +7,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+    $check = $pdo->prepare("Select * from users where username = ?");
+    $check->execute([$username]);
+    $check = $check->fetch(PDO::FETCH_ASSOC);
+    if ($check) {
+        ?><script> 
+            alert("Username already exists"); 
+            window.location.href = "login.php";
+        </script><?php  
+    }
     $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
     $stmt->execute([$username, $email, $password]);
 
     $id = $pdo->prepare("select id from users where username = ?");
+
     $id->execute([$username]);
     $id = $id->fetch(PDO::FETCH_ASSOC)['id'];
 
@@ -47,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="password" minlength="8" required>
                     </div>
                     <button type="submit">Register</button>
                     <div class="register">Already have an account? <a href="register.php">Login</a></div>
